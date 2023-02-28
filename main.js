@@ -22,7 +22,7 @@ rightWristX = 0;
 rightWristY = 0;
 scoreRightWrist = 0;
 
-game_status = 0;
+game_status = "";
 //Coordenadas x, y, raio, velocidade em x e velocidade em y
 ball = {
     x:350/2,
@@ -54,7 +54,7 @@ function modelLoaded(){
 
 
 function draw(){
-  if(game_status == "start");
+      if(game_status == "start"{
 
   background(0); 
 
@@ -67,14 +67,20 @@ function draw(){
   rect(0,0,20,700);
 
 
-  //Chamar a função paddleInCanvas() 
+if(scoreRightWrist > 0.2)
+{
+    fill("red");
+    stroke("red")
+    circle(rightWristX, rightWristY, 30);
+}
+    //Chamar a função paddleInCanvas() 
   paddleInCanvas();
 
   //Raquete do jogador
   fill(250,0,0);
   stroke(0,0,250);
   strokeWeight(0.5);
-  paddle1Y = mouseY; 
+  paddle1Y = rightWristY; 
   rect(paddle1X,paddle1Y,paddle1,paddle1Height,100);
 
 
@@ -106,7 +112,7 @@ function draw(){
 
 function startGame()
 {
-  Gamestatus = "start"; //Defina o valor da variavel status
+  game_status = "start"; //Defina o valor da variavel status
   document.getElementById("status").innerHTML = " O jogo está carregando";
 }
 
